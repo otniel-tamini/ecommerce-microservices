@@ -3,13 +3,11 @@ kind: Ingress
 metadata:
   name: main-ingress
   annotations:
-    # Si tu utilises NGINX Ingress Controller
-    kubernetes.io/ingress.class: "nginx"
-    # Optionnel : pour augmenter la taille maximale des uploads (si besoin)
     nginx.ingress.kubernetes.io/proxy-body-size: "10m"
 spec:
+  ingressClassName: nginx
   rules:
-    - host: api.mon-projet.com  # Remplace par ton domaine ou retire la ligne host pour accepter tout
+    - host: api.mon-projet.com
       http:
         paths:
           - path: /
@@ -18,4 +16,4 @@ spec:
               service:
                 name: api-gateway
                 port:
-                  number: 80 # Le port exposé par ton service api-gateway
+                  number: 80
