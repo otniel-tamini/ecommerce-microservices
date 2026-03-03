@@ -23,7 +23,7 @@ metadata:
   labels:
     app: inventory-service
 spec:
-  replicas: 2 # Haute disponibilité
+  replicas: 1 # Haute disponibilité
   selector:
     matchLabels:
       app: inventory-service
