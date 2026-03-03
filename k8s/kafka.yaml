@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: kafka
-          image: bitnami/kafka:latest
+          image: apache/kafka:latest
           env:
             - name: KAFKA_CFG_NODE_ID
               value: "0"
