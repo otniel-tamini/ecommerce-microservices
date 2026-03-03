@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: service-registry
-          image: ton-registry/service-registry:latest
+          image: otniel217/ecom-service-registry:latest
           ports:
             - containerPort: 8761
           env:

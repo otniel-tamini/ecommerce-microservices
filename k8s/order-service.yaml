@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: ton-registry/order-service:latest
+          image: otniel217/ecom-order-service:latest
           ports:
             - containerPort: 8081
           env:

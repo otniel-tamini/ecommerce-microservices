@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: ton-regitry-docker/api-gateway:latest # À remplacer par ton image
+          image: otniel217/ecom-api-gateway:latest # À remplacer par ton image
           ports:
             - containerPort: 8080
           env:

@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: inventory-service
-          image: ton-registry/inventory-service:latest
+          image: otniel217/ecom-inventory-service:latest
           ports:
             - containerPort: 8082
           env:

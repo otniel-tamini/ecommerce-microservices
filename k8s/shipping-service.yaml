@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: shipping-service
-          image: ton-registry/shipping-service:latest
+          image: otniel217/ecom-shipping-service:latest
           ports:
             - containerPort: 8085
           env:

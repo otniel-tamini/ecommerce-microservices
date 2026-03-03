@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: payment-service
-          image: ton-registry/payment-service:latest
+          image: otniel217/ecom-payment-service:latest
           ports:
             - containerPort: 8083
           env:

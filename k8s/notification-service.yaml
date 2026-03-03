@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: notification-service
-          image: ton-registry/notification-service:latest
+          image: otniel217/ecom-notification-service:latest
           ports:
             - containerPort: 8084
           env:
