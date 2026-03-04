@@ -42,3 +42,10 @@ eureka:
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
