@@ -49,3 +49,14 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /swagger-ui.html
+    urls:
+      - name: order-service
+        url: /order-service/v3/api-docs
+      - name: inventory-service
+        url: /inventory-service/v3/api-docs
+      - name: payment-service
+        url: /payment-service/v3/api-docs
+      - name: shipping-service
+        url: /shipping-service/v3/api-docs
+      - name: notification-service
+        url: /notification-service/v3/api-docs

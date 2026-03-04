@@ -14,10 +14,10 @@ eureka:
     fetch-registry: false
   server:
     wait-time-in-ms-when-sync-empty: 0
-    
+
 springdoc:
   api-docs:
     enabled: true
   swagger-ui:
     enabled: true
-    path: /swagger-ui.html
+    path: /v3/api-docs
