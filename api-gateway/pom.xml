@@ -1,90 +1,39 @@
-server:
-  port: 8080
-
-spring:
-  application:
-    name: api-gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: order-service
-          uri: lb://order-service
-          predicates:
-            - Path=/api/orders/**
-        - id: inventory-service
-          uri: lb://inventory-service
-          predicates:
-            - Path=/api/inventory/**
-        - id: payment-service
-          uri: lb://payment-service
-          predicates:
-            - Path=/api/payments/**
-        - id: shipping-service
-          uri: lb://shipping-service
-          predicates:
-            - Path=/api/shipping/**
-        - id: notification-service
-          uri: lb://notification-service
-          predicates:
-            - Path=/api/notifications/**
-        - id: swagger-order
-          uri: lb://order-service
-          predicates:
-            - Path=/order-service/v3/api-docs
-        - id: swagger-inventory
-          uri: lb://inventory-service
-          predicates:
-            - Path=/inventory-service/v3/api-docs
-        - id: swagger-payment
-          uri: lb://payment-service
-          predicates:
-            - Path=/payment-service/v3/api-docs
-        - id: swagger-shipping
-          uri: lb://shipping-service
-          predicates:
-            - Path=/shipping-service/v3/api-docs
-        - id: swagger-notification
-          uri: lb://notification-service
-          predicates:
-            - Path=/notification-service/v3/api-docs
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://service-registry:8761/eureka/
-  instance:
-    prefer-ip-address: true
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-
-springdoc:
-  api-docs:
-    enabled: true
-  swagger-ui:
-    enabled: true
-    path: /swagger-ui.html
-    urls:
-      - name: order-service
-        url: /order-service/v3/api-docs
-      - name: inventory-service
-        url: /inventory-service/v3/api-docs
-      - name: payment-service
-        url: /payment-service/v3/api-docs
-      - name: shipping-service
-        url: /shipping-service/v3/api-docs
-      - name: notification-service
-        url: /notification-service/v3/api-docs
-  webjars:
-    prefix: ""
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,mappings
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hacisimsek</groupId>
+        <artifactId>ecommerce-microservices</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>api-gateway</artifactId>
+    <name>api-gateway</name>
+    <description>api-gateway</description>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

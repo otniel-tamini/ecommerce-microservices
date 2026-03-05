@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: api-gateway
+  main:
+    web-application-type: reactive
   cloud:
     gateway:
       discovery:
@@ -31,6 +33,26 @@ spring:
           uri: lb://notification-service
           predicates:
             - Path=/api/notifications/**
+        - id: swagger-order
+          uri: lb://order-service
+          predicates:
+            - Path=/order-service/v3/api-docs
+        - id: swagger-inventory
+          uri: lb://inventory-service
+          predicates:
+            - Path=/inventory-service/v3/api-docs
+        - id: swagger-payment
+          uri: lb://payment-service
+          predicates:
+            - Path=/payment-service/v3/api-docs
+        - id: swagger-shipping
+          uri: lb://shipping-service
+          predicates:
+            - Path=/shipping-service/v3/api-docs
+        - id: swagger-notification
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification-service/v3/api-docs
 
 eureka:
   client:
@@ -60,5 +82,11 @@ springdoc:
         url: /shipping-service/v3/api-docs
       - name: notification-service
         url: /notification-service/v3/api-docs
-    api-docs:
-      enabled: true
+  webjars:
+    prefix: ""
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,mappings
